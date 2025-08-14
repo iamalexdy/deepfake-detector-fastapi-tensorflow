@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Verificador de Video IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="container flex flex-col items-center space-y-8">
+        <h1 class="text-4xl font-bold text-gray-800 text-center mb-6">Verificador de Video IA</h1>
+        <div class="w-full max-w-2xl bg-gray-50 p-6 rounded-lg shadow-inner flex flex-col items-center space-y-4">
+            <label for="videoUpload" class="block text-gray-700 text-lg font-medium mb-2">
+                Sube un video para analizar:
+            </label>
+            <input type="file" id="videoUpload" accept="video/*" class="block w-full text-sm text-gray-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-blue-50 file:text-blue-700
+                hover:file:bg-blue-100 cursor-pointer"
+            />
+            <video id="videoPreview" class="video-preview mt-4 hidden" controls></video>
+        </div>
+        <button id="analyzeButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg
+            transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300
+            flex items-center justify-center space-x-2"
+            disabled>
+            <span id="buttonText">Analizar Video</span>
+            <div id="loadingSpinner" class="loading-spinner hidden"></div>
+        </button>
+        <div id="resultSection" class="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md mt-8 hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Resultado del Análisis:</h2>
+            <div id="analysisResult" class="text-base text-gray-700 text-center space-y-2"></div>
+            <p class="text-sm text-gray-500 mt-4 text-center">
+            </p>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalButton">&times;</span>
+            <p id="modalMessage" class="text-lg text-gray-800"></p>
+            <button id="modalOkButton" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">OK</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
